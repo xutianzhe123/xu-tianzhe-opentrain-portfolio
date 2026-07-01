@@ -299,7 +299,7 @@ function Hero() {
         </div>
         <div className="contact-strip">
           <span>1037509064@qq.com</span>
-          <span>15839910082</span>
+          <span>18501538627</span>
         </div>
       </BorderGlow>
     </section>
@@ -468,7 +468,7 @@ function ContactDrawer({ open, onClose }) {
       <h2>如果有 AI Skill、数据可视化或项目交付需求，可以直接联系我。</h2>
       <dl>
         <dt>电话</dt>
-        <dd>15839910082</dd>
+        <dd>18501538627</dd>
         <dt>邮箱</dt>
         <dd>1037509064@qq.com</dd>
         <dt>方向</dt>
