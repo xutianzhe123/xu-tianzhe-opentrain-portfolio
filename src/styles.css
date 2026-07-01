@@ -241,7 +241,7 @@ button {
   background:
     linear-gradient(90deg, rgba(3, 8, 15, 0.78) 0%, rgba(3, 8, 15, 0.5) 42%, rgba(3, 8, 15, 0.12) 100%),
     linear-gradient(180deg, rgba(3, 8, 15, 0.02) 0%, rgba(3, 8, 15, 0.18) 58%, #06101c 100%),
-    url("/assets/suzhou-skyline.jpeg") center 44%/cover no-repeat;
+    url("./assets/suzhou-skyline.jpeg") center 44%/cover no-repeat;
 }
 
 .hero::after {

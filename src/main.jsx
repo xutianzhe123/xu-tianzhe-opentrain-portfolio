@@ -4,7 +4,8 @@ import BorderGlow from "./BorderGlow";
 import Strands from "./Strands";
 import "./styles.css";
 
-const resumePdf = "/assets/xu-tianzhe-ai-portfolio-resume.pdf";
+const assetUrl = (path) => `${import.meta.env.BASE_URL}${path}`.replace(/\/{2,}/g, "/");
+const resumePdf = assetUrl("assets/xu-tianzhe-ai-portfolio-resume.pdf");
 
 const profileStats = [
   ["9年", "B2B 项目与商务经验"],
