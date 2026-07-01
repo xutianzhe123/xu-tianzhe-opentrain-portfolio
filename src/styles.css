@@ -843,16 +843,33 @@ button {
 
 @media (max-width: 760px) {
   :root {
-    --shell: calc(100vw - 32px);
+    --shell: calc(100vw - 24px);
+  }
+
+  body {
+    background:
+      radial-gradient(circle at 74% 6%, rgba(107, 182, 255, 0.16), transparent 16rem),
+      radial-gradient(circle at 12% 52%, rgba(99, 230, 180, 0.08), transparent 18rem),
+      linear-gradient(180deg, #06101c 0%, #07131f 52%, #04080f 100%);
+  }
+
+  .strands-backdrop {
+    opacity: 0.2;
+    filter: blur(14px) saturate(1);
   }
 
   .topbar {
-    top: 10px;
-    min-height: auto;
-    flex-wrap: wrap;
-    gap: 14px;
-    border-radius: 28px;
-    padding: 16px;
+    position: relative;
+    top: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    width: var(--shell);
+    min-height: 58px;
+    gap: 10px;
+    margin-top: max(10px, env(safe-area-inset-top));
+    border-radius: 22px;
+    padding: 9px 10px;
+    background: rgba(8, 17, 29, 0.74);
   }
 
   .brand em,
@@ -860,52 +877,313 @@ button {
     display: none;
   }
 
+  .brand {
+    min-width: 0;
+    gap: 10px;
+  }
+
+  .brand span {
+    width: 42px;
+    height: 42px;
+    border-radius: 15px;
+    font-size: 16px;
+  }
+
+  .brand b {
+    overflow: hidden;
+    font-size: 20px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
   .magnetic-button {
-    flex: 1;
+    min-width: 118px;
+    min-height: 44px;
+    padding: 0 18px;
+    font-size: 15px;
   }
 
   .hero {
     min-height: auto;
-    gap: 34px;
-    padding-top: 54px;
+    gap: 18px;
+    padding: 34px 0 42px;
+  }
+
+  .hero::before {
+    inset: -98px calc((100vw - var(--shell)) / -2) 0;
+    background:
+      linear-gradient(180deg, rgba(3, 8, 15, 0.18) 0%, rgba(3, 8, 15, 0.72) 52%, #06101c 100%),
+      url("../assets/suzhou-skyline.jpeg") center top/auto 420px no-repeat;
+  }
+
+  .hero::after {
+    inset: -80px calc((100vw - var(--shell)) / -2) 0;
+    background:
+      radial-gradient(circle at 70% 16%, rgba(245, 166, 207, 0.12), transparent 16rem),
+      radial-gradient(circle at 40% 32%, rgba(107, 182, 255, 0.13), transparent 18rem);
+  }
+
+  .eyebrow {
+    max-width: 100%;
+    margin-bottom: 16px;
+    padding: 8px 11px;
+    font-size: 11px;
+    line-height: 1.45;
+    border-radius: 16px;
   }
 
   .hero h1 {
-    font-size: clamp(66px, 22vw, 88px);
+    margin-bottom: 16px;
+    font-size: clamp(52px, 16vw, 68px);
+    letter-spacing: -0.07em;
+    line-height: 0.94;
   }
 
   .hero h1 span {
-    font-size: 32px;
+    margin-top: 10px;
+    font-size: clamp(24px, 7.4vw, 31px);
+    letter-spacing: -0.04em;
   }
 
   .lead {
-    font-size: 16px;
+    font-size: 15px;
+    line-height: 1.72;
+  }
+
+  .hero-actions {
+    gap: 10px;
+    margin-top: 22px;
   }
 
   .hero-actions a {
     width: 100%;
+    min-height: 46px;
   }
 
   .profile-card {
-    padding: 26px;
+    border-radius: 26px;
+    padding: 22px;
   }
 
-  .profile-stats,
+  .profile-top {
+    align-items: flex-start;
+    font-size: 11px;
+  }
+
+  .profile-card h2 {
+    margin: 30px 0 12px;
+    font-size: 26px;
+    line-height: 1.12;
+    letter-spacing: -0.04em;
+  }
+
+  .profile-card p {
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+
+  .profile-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .profile-stats div {
+    min-height: 92px;
+    padding: 14px;
+    border-radius: 20px;
+  }
+
+  .profile-stats strong {
+    font-size: clamp(34px, 12vw, 46px);
+  }
+
+  .profile-stats span {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .contact-strip {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .contact-strip span {
+    width: 100%;
+    padding: 9px 11px;
+    overflow-wrap: anywhere;
+    text-align: center;
+    font-size: 12.5px;
+  }
+
   .notes-grid,
   .project-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .row {
     align-items: start;
     flex-direction: column;
+    gap: 18px;
+  }
+
+  .section-title {
+    margin-bottom: 18px;
+  }
+
+  .section-title h2,
+  .keyword-card h2 {
+    font-size: clamp(36px, 12vw, 48px);
+    letter-spacing: -0.055em;
+  }
+
+  .note-card,
+  .project-card,
+  .capability-tabs,
+  .capability-panel,
+  .keyword-card,
+  .timeline-item,
+  .education-card {
+    border-radius: 24px;
+    padding: 20px;
+  }
+
+  .note-card {
+    min-height: 210px;
+  }
+
+  .note-card span {
+    font-size: 32px;
+  }
+
+  .note-card h3,
+  .project-card h3,
+  .capability-panel h3,
+  .timeline-item h3 {
+    margin-top: 16px;
+    font-size: 23px;
+  }
+
+  .project-card {
+    min-height: auto;
+  }
+
+  .project-card h3 {
+    margin-top: 26px;
+  }
+
+  .project-card p,
+  .project-card li,
+  .timeline-item li {
+    line-height: 1.58;
+  }
+
+  .project-card ul,
+  .timeline-item ul {
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .outcome-panel {
+    margin-top: 16px;
+    padding: 12px;
+    border-radius: 18px;
+  }
+
+  .outcome-panel div {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .outcome-panel span {
+    min-height: 34px;
+    padding: 7px 9px;
+    border-radius: 12px;
+  }
+
+  .stack-list {
+    gap: 6px;
+    padding-top: 18px;
+  }
+
+  .filters {
+    width: 100%;
+    gap: 8px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 3px;
+    scrollbar-width: none;
+  }
+
+  .filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filters button {
+    flex: 0 0 auto;
+    min-height: 38px;
+    padding: 0 13px;
+    font-size: 13px;
+  }
+
+  .capability-tabs {
+    display: flex;
+    overflow-x: auto;
+    padding: 12px;
+    scrollbar-width: none;
+  }
+
+  .capability-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .capability-tabs button {
+    flex: 0 0 210px;
+    min-height: 50px;
+    border-radius: 16px;
+    padding: 0 14px;
+    font-size: 13px;
+  }
+
+  .capability-panel h3 {
+    font-size: 30px;
   }
 
   .timeline-item {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .timeline-item ul {
+    padding-left: 16px;
   }
 
   .section {
-    padding-top: 72px;
+    scroll-margin-top: 18px;
+    padding-top: 58px;
+  }
+
+  .keywords-section {
+    padding-bottom: 82px;
+  }
+
+  .keyword-list {
+    gap: 8px;
+  }
+
+  .keyword-list span,
+  .stack-list span {
+    font-size: 11.5px;
+  }
+
+  .contact-drawer {
+    right: 12px;
+    bottom: max(12px, env(safe-area-inset-bottom));
+    width: calc(100vw - 24px);
+    padding: 22px;
+    border-radius: 24px;
   }
 }
